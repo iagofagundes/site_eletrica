@@ -70,3 +70,12 @@ footer {
     text-align: center;
     
 }
+
+video{
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    margin: 15px auto;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,102,255,0.4);
+}
