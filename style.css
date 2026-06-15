@@ -67,8 +67,15 @@ img{
 }
 
 footer {
+    background-color: #1e1e1e;
+    color: #235092;
+    padding: 10px;
+    border-left: 5px;
+    margin-top: 30px;
     text-align: center;
-    
+    font-size: 1.3rem;
+    margin-right: 10px;
+    text-decoration: none;
 }
 
 video{
@@ -79,3 +86,121 @@ video{
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0,102,255,0.4);
 }
+
+
+
+
+
+/*     Ajuda        */
+
+/* ================= BARRA DE NAVEGAÇÃO (NAVBAR) ================= */
+nav {
+    background-color: #1e1e1e;   /* Fundo cinza escuro elegante */
+    display: flex;
+    justify-content: space-between; /* Alinha a logo na esquerda e os links na direita */
+    align-items: center;        /* Centraliza tudo verticalmente */
+    padding: 15px 30px;         /* Espaçamento interno da barra */
+    border-bottom: 3px solid #1658bb; /* Linha azul charmosa na parte inferior */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Container do Logotipo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100px;               /* Altura controlada para não quebrar o menu */
+    width: auto;                /* Mantém a proporção da imagem */
+    max-width: none;            /* Reseta a sua regra geral de img */
+    margin: 0;                  /* Remove margens extras */
+    border-radius: 0;           /* Remove o radius da regra geral se necessário */
+    box-shadow: none;           /* Remove a sombra pesada da regra geral */
+}
+
+/* Container dos Links */
+.menu-links {
+    display: flex;
+    gap: 10px;                  /* Espaçamento moderno entre os links */
+}
+
+/* Estilização dos Links Individuais */
+nav a {
+    color: #4a90e2;             /* Um azul mais claro e vivo para destacar no fundo escuro */
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;  /* Transição suave para todas as propriedades */
+}
+
+/* Efeito Hover (Passar o mouse) */
+nav a:hover {
+    background-color: #1658bb;  /* Fundo azul do SENAI ao passar o mouse */
+    color: #ffffff;             /* Texto fica branco para contraste perfeito */
+}
+
+
+
+
+
+
+
+
+
+/* ================= CONFIGURAÇÃO PARA CELULAR (TELAS ATÉ 768px) ================= */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;    /* Empilha a logo e os links verticalmente */
+        gap: 15px;                 /* Dá um espaço entre a logo e os botões */
+        padding: 15px;             /* Reduz o espaçamento lateral interno */
+    }
+
+    .menu-links {
+        flex-direction: column;    /* Coloca os links um embaixo do outro */
+        width: 100%;               /* Faz os links ocuparem a largura total da tela */
+        gap: 10px;                 /* Espaço menor entre as opções no celular */
+    }
+
+    nav a {
+        display: block;            /* Transforma o link em um bloco clicável maior */
+        text-align: center;        /* Centraliza o texto do botão */
+        background-color: #252525; /* Dá um leve fundo para parecer um botão touch */
+        padding: 12px;             /* Aumenta a área do clique (essencial para o dedo) */
+    }
+}
+
+
+.caixa-texto {
+    
+    box-shadow: 0 0 20px rgba(0,102,255,0.4);
+    
+    /* 2. Margem interna: afasta o texto da borda para respirar */
+    padding: 20px; 
+    
+    /* 3. Limita a largura máxima do quadrado (opcional) */
+    max-width: 800px; 
+    
+    /* 4. Centraliza o quadrado na página */
+    margin: 40px auto; 
+    
+    /* 5. Centraliza o texto dentro do quadrado */
+    text-align: center; 
+    
+    /* 6. Cores de fundo e do texto para combinar com seu tema escuro */
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.tt-tt {
+    box-shadow: 0 0 20px rgba(0,102,255,0.4);
+    padding: 20px; 
+    margin: 40px auto; 
+    background-color: #1e1e1e;
+    color: #ffffff;
+    text-align: center; 
+    max-width: 400px; 
+}
+
