@@ -1,92 +1,174 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-<nav>
-    <div class="logo">
-        <img src="./img/logo_senai.png" alt="Logo SENAI">
-    </div>
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+    <nav>
+        <div class="logo">
+            <img src="./img/logo_senai.png" alt="Logo SENAI">
+        </div>
 
-    <div class="menu-links">
-        <a href="../index.html">Página inicial</a>
-        <a href="./protecao.html">Proteção</a>
-        <a href="./comando.html">Comando</a>
-        <a href="./sensores.html">Sensores e Acionamentos</a>
-        <a href="./teste.html">Testes Circuitos</a>
-        <a href="./teste2.html">Teste Laboratório Digital</a>
+        <div class="menu-links">
+            <a href="../index.html">Página inicial</a>
+            <a href="./protecao.html">Proteção</a>
+            <a href="./comando.html">Comando</a>
+            <a href="./sensores.html">Sensores e Acionamentos</a>
+            <a href="./teste.html">Testes Circuitos</a>
+            <a href="./teste2.html">Teste Laboratório Digital</a>
+            <a href="./tia.html">TIA Portal</a>
+        </div>
+    </nav>
+        
+    </main>
+    <h2>Prática 1 - Acionando um LED com Botão</h2>
+    <div>
+        <video src="./video_simulador/v1.1.mp4"controls></video>
     </div>
-</nav>
-    
-</main>
-<h2>Prática 1 - Acionando um LED com Botão</h2>
-<div>
-    <video src="./video_simulador/v1.1.mp4"controls></video>
-</div>
-<br>
-<h2>Prática 2 - Acionando um LED com Botão e Disjuntor</h2>
-<div>
-    <video src="./video_simulador/v2.1.mp4"controls></video>
-</div>
-<br>
-<h2>Prática 3 - Acionando dois LEDs (Botão NA e NF)</h2>
-<div>
-    <video src="./video_simulador/v3.1.mp4"controls></video>
-</div>
-<br>
-<h2>Prática 4 - Acionando um LED (Contator)</h2>
-<div>
-    <video src="./video_simulador/v4.1.mp4"controls></video>
-</div>
-<br>
-<h2>Prática 5 - Acionando dois LEDs (Contator)</h2>
-<div>
-    <video src="./video_simulador/v5.1.mp4"controls></video>
-</div>
-<br>
-<h2>Prática 6 - Contato de selo</h2>
-<div>
-    <video src="./video_simulador/v6.1.mp4"controls></video>
-</div>
-<br>
-<h2>Prática 7 - Comando de Reversão</h2>
-<div>
-    <video src="./video_simulador/v7.1.mp4"controls></video>
-</div>
-<br>
-<h2>Prática 8 - Acionamento Temporizado</h2>
-<div>
-    <video src="./video_simulador/v8.1.mp4"controls></video>
-</div>
-<br>
-<h2>Prática 9 - Partida Direta - Circuito de Comando</h2>
-<div>
-    <video src="./video_simulador/v9.1.mp4"controls></video>
-</div>
-<br>
-<h2>Prática 10 - Partida Direta - Circuito de Potência</h2>
-<div>
-    <video src="./video_simulador/v10.1.mp4"controls></video>
-</div>
-<br>
-<h2>Prática 11 - Partida Direta com Reversão - Circuito de Comando</h2>
-<div>
-    <video src="./video_simulador/v11.1.mp4"controls></video>
-</div>
-<br>
-<h2>Prática 12 - Partida Direta com Reversão - Circuito de Potência</h2>
-<div>
-    <video src="./video_simulador/v12.1.mp4"controls></video>
-</div>
-<br>
+    <div class="caixa-texto">
+        O que faz: É um circuito de comando simples. Ao pressionar e manter
+    pressionado o botão S1, o circuito fecha, alimentando o LED 1 (H1), que
+    se acende. Ao soltar o botão, o LED se apaga.
+    </div>
+    <br>
+    <h2>Prática 2 - Acionando um LED com Botão e Disjuntor</h2>
+    <div>
+        <video src="./video_simulador/v2.1.mp4"controls></video>
+    </div>
+    <div class="caixa-texto">
+        O que faz: Semelhante ao primeiro, mas adiciona um elemento de
+    proteção. O disjuntor Q1 precisa estar ligado (fechado) para permitir a
+    passagem de corrente. Com o disjuntor ativo, pressionar o botão S1
+    acende o LED 1 (H1).
+    </div>
+    <br>
+    <h2>Prática 3 - Acionando dois LEDs (Botão NA e NF)</h2>
+    <div>
+        <video src="./video_simulador/v3.1.mp4"controls></video>
+    </div>
+    <div class="caixa-texto">
+        O que faz: Quando o disjuntor Q1 é ligado, o LED 2 (H2) se acende
+    imediatamente através de um contato normalmente fechado (NF) do
+    contator, indicando que o sistema está energizado mas desligado. Ao
+    pulsar o botão S1, o contator K1 é acionado e fecha seu contato de selo
+    (retenção). Isso mantém K1 ligado mesmo após soltar o botão,
+    apagando o LED 2 e acendendo o LED 1 (H1) (indicando que o sistema
+    está em funcionamento).
+    </div>
+    <br>
+    <h2>Prática 4 - Acionando um LED (Contator)</h2>
+    <div>
+        <video src="./video_simulador/v4.1.mp4"controls></video>
+    </div>
+    <div class="caixa-texto">
+        O que faz: Ao ligar o disjuntor Q1 e pressionar o botão S1, a corrente
+    alimenta simultaneamente a bobina do contator K1 e o LED 1 (H1).
+    Como não há contato de selo neste esquema, o contator e o LED
+    permanecem ativos apenas enquanto o botão S1 estiver pressionado.
+    </div>
+    <br>
+    <h2>Prática 5 - Acionando dois LEDs (Contator)</h2>
+    <div>
+        <video src="./video_simulador/v5.1.mp4"controls></video>
+    </div>
+    <div class="caixa-texto">
+        O que faz: Ao ligar o disjuntor Q1 e pressionar o botão S1, a bobina do
+    contator K1 e o LED 1 (H1) são energizados, ativando a retenção de K1.
+    O circuito possui uma lógica de intertravamento: o contator K2 (e o LED
+    2) só podem ser ativados se o contator K1 já estiver ligado, dependendo
+    de seus contatos auxiliares para dar sequência à operação.
+    </div>
+    <br>
+    <h2>Prática 6 - Contato de selo</h2>
+    <div>
+        <video src="./video_simulador/v6.1.mp4"controls></video>
+    </div>
+    <div class="caixa-texto">
+        O que faz: É um circuito básico de liga/desliga com retenção. Ao
+    pressionar o botão de liga (S1), o contator K1 e o LED 1 se ativam e
+    permanecem ligados (&quot;selados&quot;). Para interromper o funcionamento e
 
-<main>
-    <footer>
-        by Iago &copy; &trade;
-    </footer>
-</body>
-</html>
+    apagar o sistema, deve-se pressionar o botão S0 (botão de
+    desligamento), que abre o circuito.
+    </div>
+    <br>
+    <h2>Prática 7 - Comando de Reversão</h2>
+    <div>
+        <video src="./video_simulador/v7.1.mp4"controls></video>
+    </div>
+    <div class="caixa-texto">
+        O que faz: Esse circuito controla dois contatores separadamente, mas
+    possui um intertravamento de segurança. Se o contator K1 estiver
+    ligado, é impossível ligar o contator K2, e vice-versa. Isso evita que
+    ambos funcionem ao mesmo tempo, prevenindo curtos-circuitos ou
+    comandos conflitantes.
+    </div>
+    <br>
+    <h2>Prática 8 - Acionamento Temporizado</h2>
+    <div>
+        <video src="./video_simulador/v8.1.mp4"controls></video>
+    </div>
+    <div class="caixa-texto">
+        O que faz: Ao acionar o circuito, o Relé Temporizador 1 começa a
+    contar um tempo pré-definido. Somente após essa contagem terminar é
+    que ele fecha seu contato auxiliar, permitindo que a bobina do contator
+    K1 seja finalmente alimentada e ligue o sistema automaticamente.
+    </div>
+    <br>
+    <h2>Prática 9 - Partida Direta - Circuito de Comando</h2>
+    <div>
+        <video src="./video_simulador/v9.1.mp4"controls></video>
+    </div>
+    <div class="caixa-texto">
+        O que faz: Adiciona um botão de Botão de Emergência (SE) do tipo
+    trava (cogumelo). Quando esse botão é pressionado, ele corta
+    instantaneamente toda a alimentação do circuito de comando,
+    desligando o contator K1 e o LED 1, servindo como proteção imediata
+    para o operador e a máquina.
+    </div>
+    <br>
+    <h2>Prática 10 - Partida Direta - Circuito de Potência</h2>
+    <div>
+        <video src="./video_simulador/v10.1.mp4"controls></video>
+    </div>
+    <div class="caixa-texto">
+        O que faz: Este é um circuito de potência (força). Ao fechar o disjuntor
+    trifásico Q1 e o contator K1 ser acionado pelo comando, as três fases da
+    rede elétrica ($L_1, L_2, L_3$) são conectadas diretamente aos
+    terminais do Motor Trifásico, fazendo-o girar com sua potência total.
+    </div>
+    <br>
+    <h2>Prática 11 - Partida Direta com Reversão - Circuito de Comando</h2>
+    <div>
+        <video src="./video_simulador/v11.1.mp4"controls></video>
+    </div>
+    <div class="caixa-texto">
+        O que faz: É um painel de comando avançado com múltiplos LEDs
+    indicadores. Ele monitora o estado de diferentes contatores e botões,
+    acendendo luzes específicas (como LED 1, 2, 3 e 4) para indicar
+    visualmente se o sistema está em stand-by, operando normalmente ou
+    se há alguma falha/bloqueio.
+    </div>
+    <br>
+    <h2>Prática 12 - Partida Direta com Reversão - Circuito de Potência</h2>
+    <div>
+        <video src="./video_simulador/v12.1.mp4"controls></video>
+    </div>
+    <div class="caixa-texto">
+        O que faz: Permite controlar o sentido de rotação do motor elétrico. Ele
+    utiliza dois contatores no circuito de força: quando K1 é acionado, o
+    motor gira para um lado; quando K2 é acionado, duas das três fases são
+    invertidas, fazendo com que o motor gire no sentido contrário. Um
+    intertravamento garante que K1 e K2 nunca entrem juntos.
+    </div>
+    <br>
+
+    <main>
+        <footer>
+            by Iago &copy; &trade;
+        </footer>
+    </body>
+    </html>

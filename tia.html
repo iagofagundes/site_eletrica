@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+<nav>
+    <div class="logo">
+        <img src="./img/logo_senai.png" alt="Logo SENAI">
+    </div>
+
+    <div class="menu-links">
+        <a href="../index.html">Página inicial</a>
+        <a href="./protecao.html">Proteção</a>
+        <a href="./comando.html">Comando</a>
+        <a href="./sensores.html">Sensores e Acionamentos</a>
+        <a href="./teste.html">Testes Circuitos</a>
+        <a href="./teste2.html">Teste Laboratório Digital</a>
+        <a href="./tia.html">TIA Portal</a>
+    </div>
+</nav>
+</main>
+<h2>Seleção e Configuração do Hardware (O Modelo do CLP)</h2>
+<br>
+<div class="caixa-texto">
+Antes de começar qualquer programação de fábrica, o primeiro passo é escolher o cérebro eletrônico que vai controlar tudo: o CLP (Controlador Lógico Programável). Na tela de configuração do software (mostrada na imagem do catálogo), foi selecionado o seguinte equipamento:
+</div>
+<div class="tt-tt">
+<p>Modelo: SIMATIC S7-1200</p>
+<p>CPU: CPU 1215C DC/DC/DC</p>
+<p>Código do Produto (Article No.): 6ES7 215-1AG40-0XB0</p>
+<p>Versão do Firmware: V4.7</p>
+</div>
+<div class="caixa-texto">
+O que isso significa na prática? Esse modelo de CLP funciona com alimentação de 24V contínuos (DC). Ele possui 14 entradas digitais (para ler botões e sensores) e 10 saídas digitais (para mandar energia para motores e válvulas), além de conexões de rede PROFINET para se comunicar com o computador de monitoramento.
+</div>
+<div>
+    <img src="./img_tia/im1.png" alt="">
+</div>
+<br>
+<h2> Lógica Inicial: Ligação Direta (Antes dos Temporizadores)</h2>
+<br>
+<div class="caixa-texto">
+<p>Na imagem que mostra o programa limpo no início do projeto (sem os blocos cinzas de tempo), temos uma ligação direta simples. Em programação Ladder, as linhas funcionam como fios elétricos:</p>
+<li>Network 1 (Controle da Válvula): O contato de entrada "mem_10_0" está diretamente ligado à bobina de saída "valvula". Se o botão for apertado, a válvula liga na hora. Se soltar, ela desliga imediatamente.</li>
+<li>Network 2 (Controle do Motor): O contato de entrada "mem_10_1" está diretamente ligado ao "motor". O funcionamento é o mesmo: apertou o botão o motor liga, soltou o botão ele desliga.</li>
+<p>Por que mudar isso? Na indústria, ligar e desligar coisas de forma instantânea nem sempre é seguro ou eficiente. Por isso, evoluímos o projeto adicionando os temporizadores.</p>
+</div>
+<div>
+    <img src="./img_tia/im2.png" alt="">
+</div>
+<br>
+<h2>O Funcionamento Prático com os Temporizadores</h2>
+<div class="caixa-texto">
+Ao colocar os blocos temporizadores no circuito, mudamos totalmente o comportamento da máquina para torná-la inteligente. No modo de monitoramento do computador, a linha verde contínua significa energia passando e a linha azul tracejada significa circuito desligado.
+</div>
+<br>
+<h2>O Bloco TOF (Atraso para Desligar o Motor1)</h2>
+<div class="caixa-texto">
+    
+O TOF funciona como a luz do corredor de um prédio: você aperta o botão, ela liga na hora. Quando você solta o botão, ela continua acesa por um tempo e desliga sozinha depois. No nosso projeto, ele está programado para 10 segundos (t#10s).
+Com o botão apertado (Início do funcionamento): A energia passa pela memória, ativa a entrada do TOF e o "motor1" liga na mesma hora (tudo fica verde).
+</div>
+<div>
+    <img src="./img_tia/im3.png" alt="">
+</div>
+<div class="caixa-texto">
+Depois de soltar o botão (Contagem para desligar): O botão desliga (fica azul tracejado), mas repare que a linha do "motor1" continua verde (ligada)! O temporizador começou a contar o tempo de segurança e só vai desligar o motor de verdade quando se passarem os 10 segundos.
+</div>
+<h2> O Bloco TON (Atraso para Ligar a Válvula1)</h2>
+<div class="caixa-texto">
+O TON funciona como o botão de ligar do celular: você não pode dar só um clique rápido, precisa segurar apertado por alguns segundos para ele funcionar. Ele está programado para 5 segundos (t#5s).
+Segurando o botão (Esperando o tempo passar): O botão de entrada está ativado (verde), mas a saída da "valvula1" continua desligada (azul). O temporizador está contando o tempo de espera para ter certeza de que o operador realmente quer ligar o sist
+
+</div>
+<div>
+    <img src="./img_tia/im5.png" alt="">
+</div>
+<div class="caixa-texto">
+Tempo esgotado (Válvula ligada): Como o botão foi mantido apertado por 5 segundos seguidos, o bloco TON finalmente libera a energia, e a linha da "valvula1" fica totalmente verde (ligada).
+</div>
+<div>
+    <img src="./img_tia/im6.png" alt="">
+</div>
+<h2>Tabela Resumo dos Componentes</h2>
+<div>
+    <img src="./img_tia/Captura de tela 2026-06-24 162424.png" alt="">
+</div>
+<main>
+    <footer>
+        by Iago &copy; &trade;
+    </footer>
+</body>
+</html>
+
+
+
+<div class="caixa-texto">
+
+</div>

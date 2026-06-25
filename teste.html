@@ -19,6 +19,7 @@
         <a href="./sensores.html">Sensores e Acionamentos</a>
         <a href="./teste.html">Testes Circuitos</a>
         <a href="./teste2.html">Teste Laboratório Digital</a>
+        <a href="./tia.html">TIA Portal</a>
     </div>
 </nav>
     
@@ -27,30 +28,96 @@
 <div>
     <video src="./video_cadsimu/v1.mp4"controls></video>
 </div>
+<div class="caixa-texto">
+    O circuito funciona através de um pulso inicial. Quando o operador pressiona o
+botão de partida, a corrente elétrica energiza a bobina do contator. Ao ser
+energizada, essa bobina fecha instantaneamente um contato auxiliar que está
+ligado em paralelo com o botão de partida. Isso cria um caminho alternativo
+para a energia, fazendo com que o circuito permaneça ligado por conta própria,
+mesmo depois que o operador solta o botão. A lâmpada acende para indicar
+que o sistema está retido e ativo.
+</div>
 <br>
 <h2>Contator NF</h2>
 <div>
     <video src="./video_cadsimu/v2.mp4"controls></video>
+</div>
+<div class="caixa-texto">
+A lógica de funcionamento é idêntica à do circuito 1 (acionamento por pulso e
+retenção por contato de selo), mas aqui o fluxo de energia gerencia duas
+condições visuais. Em estado de repouso, a energia passa por um contato
+normalmente fechado da bobina, mantendo uma lâmpada acesa para indicar
+que o sistema está energizado, mas parado. Quando o botão é pressionado e a
+bobina liga, esse contato se abre (apagando a lâmpada de parada) e o contato
+de selo se fecha (ligando a lâmpada de funcionamento).
 </div>
 <br>
 <h2>Comandos Elétricos - LED - Botão NA</h2>
 <div>
     <video src="./video_cadsimu/v3.mp4"controls></video>
 </div>
+<div class="caixa-texto">
+Este circuito funciona por ação direta e contínua. Não existe nenhuma
+inteligência ou memória no sistema. A corrente elétrica só chega até a lâmpada
+se o operador mantiver o botão fisicamente pressionado. No momento em que
+o dedo é retirado do botão, a mola interna o joga de volta para a posição
+aberta, cortando o fluxo de energia imediatamente e apagando a lâmpada.
+</div>
 <br>
 <h2>ED - Botão NF</h2>
 <div>
     <video src="./video_cadsimu/v4.mp4"controls></video>
+</div>
+<div class="caixa-texto">
+O funcionamento baseia-se em desviar o caminho da corrente elétrica usando
+um único botão com dupla função. Sem tocar no botão, a energia segue por um
+caminho fechado por padrão, alimentando a primeira lâmpada. Ao pressionar e
+segurar o botão, esse caminho original é interrompido e a energia é forçada a ir
+para uma segunda linha, acendendo a outra lâmpada. Ao soltar o botão, o fluxo
+de energia retorna instantaneamente para o caminho inicial.
 </div>
 <br>
 <h2>Comandos Elétricos - Contato Selo</h2>
 <div>
     <video src="./video_cadsimu/v5.mp4"controls></video>
 </div>
+<div class="caixa-texto">
+Aqui o funcionamento introduz um fluxo de segurança para desligamento. A
+energia passa obrigatoriamente por um botão de parada (normalmente
+fechado) antes de chegar ao botão de partida.
+1. O operador dá um pulso no botão de liga;
+2. A bobina ativa seu próprio selo e se mantém ligada;
+3. Para interromper esse fluxo contínuo, o operador precisa pressionar o
+botão de parada, o que abre o circuito temporariamente, corta a energia
+da bobina, desfaz o selo e desliga o sistema por completo até um novo
+comando.
+</div>
 <br>
 <h2>Partida Direta - Comando e Força</h2>
 <div>
+    <video src="./video_cadsimu/Simulação 6.mp4"controls></video>
+</div>
+<div class="caixa-texto">
+Fluxo de rotação: Para o motor girar para a direita, o operador
+pressiona o botão 1, que ativa a bobina 1 e direciona as três fases da
+rede elétrica em uma ordem específica para o motor. Para girar para a
+esquerda, o operador precisa parar o sistema e pressionar o botão 2,
+que ativa a bobina 2. Esta bobina inverte a posição de duas das três
+fases, alterando o campo magnético e forçando o motor a girar no
+sentido contrário.
+</div>
+<h2>Partda Reversora</h2>
+<div>
     <video src="./video_cadsimu/simulação 7.mp4"controls></video>
+</div>
+<div class="caixa-texto">
+Fluxo de proteção (Intertravamento): Se as duas bobinas ligassem
+juntas, haveria um curto-circuito perigoso entre as fases da rede elétrica.
+Por isso, o funcionamento elétrico impede isso: quando a bobina 1 está
+ativa, ela abre fisicamente um interruptor no caminho da bobina 2.
+Mesmo que alguém aperte o botão para inverter o sentido com o motor
+rodando, a energia é bloqueada e nada acontece até que o botão de
+parada geral seja acionado.
 </div>
 
 <main>
@@ -59,3 +126,6 @@
     </footer>
 </body>
 </html>
+
+
+
