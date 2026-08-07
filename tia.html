@@ -23,6 +23,88 @@
     </div>
 </nav>
 </main>
+<h2>Lógica do Tempo: Temporizadores (Timers)</h2>
+<div class="caixa-texto">
+    <h3>TON (Timer On-Delay | Atraso para Ligar)</h3>
+Funciona como um filtro de segurança. A saída só é ativada se o sinal de entrada permanecer ON continuamente pelo tempo programado. Se o sinal cair 1 milissegundo antes, o tempo zera.
+<br>
+<h3>Na prática</h3>
+Aguardar 5 segundos após a detecção de uma garrafa antes de iniciar o enchimento.
+<img src="./img_tia/TON.png" alt="">
+</div>
+<br>
+<div class="caixa-texto">
+<h3>TOFF (Timer Off-Delay | Atraso para Desligar)</h3>
+Mantém tudo rodando por um "tempo extra". Quando o sinal de entrada desliga, a saída continua ativa até que a contagem regressiva termine.
+<br>
+<h3>Na prática</h3>
+Manter a ventilação de um painel elétrico ligada por 3 minutos após o motor principal ser desligado para dissipar o calor.
+<img src="./img_tia/TOFF.png" alt="">
+</div>
+<br>
+<div class="caixa-texto">
+<h3>TP (Pulse Timer | Temporizador de Pulso)</h3>
+Precisão sem interrupções. Ao receber um único pulso na entrada, ele gera um sinal de saída com duração fixa. Mesmo que a entrada mude de estado, o tempo corre até o final.
+<br>
+<h3>Na prática</h3>
+Disparar um jato de ar comprimido por exatamente 500ms para ejetar uma peça defeituosa.
+<img src="./img_tia/TP.png" alt="">
+</div>
+<br>
+<br>
+<h2>Controle de Fluxo: Contadores (Counters)</h2>
+<div class="caixa-texto">
+<h3>CTU (Count Up | Contador Crescente)</h3>
+Soma +1 a cada pulso recebido na entrada. Quando atinge o valor limite estipulado, aciona a saída. Pode ser zerado a qualquer momento via pino de Reset.
+<br>
+<h3>Na prática</h3>
+Contar 12 caixas em uma esteira para fechar um lote e acionar o braço robótico de paletização.
+<img src="./img_tia/CTU.png" alt="">
+</div>
+<br>
+<div class="caixa-texto">
+<h3>CTD (Count Down | Contador Decrescente)</h3>
+Subtrai -1 a cada pulso. A saída liga quando a contagem chega a zero. Permite recarregar o valor inicial com um clique.
+<br>
+<h3>Na prática</h3>
+Gerenciar as vagas disponíveis em um estacionamento inteligente conforme os carros entram.
+<img src="./img_tia/CTD.png" alt="">
+</div>
+<br>
+<br>
+<h2>Inteligência de Dados: Mover e Transferir</h2>
+<div class="caixa-texto">
+<h3>MOVE (Move Value | Mover Valor)</h3>
+É o comando de "copiar e colar" da automação. Ele pega o valor de uma variável ou constante na entrada e transfere instantaneamente para o destino.
+<br>
+<h3>Na prática</h3>
+Enviar um novo setpoint de temperatura digitado pelo operador na IHM diretamente para o bloco de controle do processo.
+<img src="./img_tia/MOVE.png" alt="">
+</div>
+<h2>Explicação de cada símbolo (da esquerda para a direita)</h2>
+<div class="tt-tt">
+<p>1. == (Igual a):</p>
+<p>● Condição: %MW20 == 1</p>
+<p>● Dá passagem se a memória for exatamente igual a 1.</p>
+<p>2. <> (Diferente de):</p>
+<p>● Condição: %MW20 <> 1</p>
+<p>● Dá passagem se a memória for qualquer valor, exceto 1 (ex: 0, 2, -5).</p>
+<p>3. >= (Maior ou Igual a):</p>
+<p>● Condição: %MW20 >= 1</p>
+<p>● Dá passagem se a memória for 1 ou qualquer número maior (1, 2, 3...).</p>
+<p>4. <= (Menor ou Igual a):</p>
+<p>● Condição: %MW20 <= 1</p>
+<p>● Dá passagem se a memória for 1 ou qualquer número menor (1, 0, -1...).</p>
+<p>5. > (Maior que):</p>
+<p>● Condição: %MW20 > 1</p>
+<p>● Dá passagem apenas se a memória for estritamente maior que 1 (2, 3, 4...). O valor 1 fica de fora.</p>
+<p>6. < (Menor que):</p>
+<p>● Condição: %MW20 < 1</p>
+<p>● Dá passagem apenas se a memória for estritamente menor que 1 (0, -1, -2...). O valor 1 fica de fora.</p>
+</div>
+<br>
+<img src="./img_tia/comparaco.png" alt="">
+<br>
 <h2>Seleção e Configuração do Hardware (O Modelo do CLP)</h2>
 <br>
 <div class="caixa-texto">
@@ -96,8 +178,3 @@ Tempo esgotado (Válvula ligada): Como o botão foi mantido apertado por 5 segun
 </body>
 </html>
 
-
-
-<div class="caixa-texto">
-
-</div>
