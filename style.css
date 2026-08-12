@@ -1,209 +1,417 @@
-body{
-    background-color: #121212;
-    color: #ffffff;
+/* ==========================================================================
+   RESET & VARIÁVEIS GLOBAIS
+   ========================================================================== */
+:root {
+    --bg-main: #0b0f19;
+    --bg-sidebar: #111827;
+    --bg-card: #151c2c;
+    --primary: #0056a6;
+    --accent: #e30613;
+    --text-main: #ffffff;
+    --text-muted: #94a3b8;
+    --border: #1e293b;
+    --radius: 10px;
+    --sidebar-width: 260px;
+}
+
+body.light-theme {
+    --bg-main: #ffffff;
+    --bg-sidebar: #f0f0f0;
+    --bg-card: #e0e0e0;
+    --text-main: #000000;
+    --text-muted: #333333;
+    --border: #cccccc;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
     font-family: Arial, sans-serif;
-    margin: 20px;
     line-height: 1.6;
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-h1{
-    color: rgb(21, 83, 175);
-    text-align: center;
-}
-
-h2{
-    background-color: #1e1e1e;
-    color: #235092;
-    padding: 10px;
-    border-left: 5px solid #235092;
-    margin-top: 30px;
-}
-
-h3{
-    color: #1658bb;
-    text-align: center;
-}
-
-
-ul{
-    padding-left: 20px;
-}
-
-li{
-    margin-bottom: 5px;
-}
-
-nav,a{
-    background-color: #1e1e1e;
-    color: #235092;
-    padding: 10px;
-    border-left: 5px;
-    margin-top: 30px;
-    text-align: center;
-    font-size: 1.3rem;
-    margin-right: 10px;
-    text-decoration: none;
-    
-}
-
-a:hover{
-    transition: ease;
-    transition-duration: 1.0s;
-    background-color: rgb(0, 0, 0);
-    padding: 3px 6px;
-    border-radius: 10px;
-}
-
-a{
-    color: #235092;
-}
-
-img{
-    width: 100%;
-    max-width: 500px;
-    display: block;
-    margin: 15px auto;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,102,255,0.4);
-}
-
-footer {
-    background-color: #1e1e1e;
-    color: #235092;
-    padding: 10px;
-    border-left: 5px;
-    margin-top: 30px;
-    text-align: center;
-    font-size: 1.3rem;
-    margin-right: 10px;
-    text-decoration: none;
-}
-
-video{
-    width: 100%;
-    max-width: 500px;
-    display: block;
-    margin: 15px auto;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,102,255,0.4);
-}
-
-div {
-    text-align: center;
-}
-
-
-
-/*     Ajuda        */
-
-/* ================= BARRA DE NAVEGAÇÃO (NAVBAR) ================= */
+/* ==========================================================================
+   MENU LATERAL (SIDEBAR - DESKTOP)
+   ========================================================================== */
 nav {
-    background-color: #1e1e1e;   /* Fundo cinza escuro elegante */
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, #111827 0%, #0d1117 100%);
+    border-right: 3px solid var(--primary);
     display: flex;
-    justify-content: space-between; /* Alinha a logo na esquerda e os links na direita */
-    align-items: center;        /* Centraliza tudo verticalmente */
-    padding: 15px 30px;         /* Espaçamento interno da barra */
-    border-bottom: 3px solid #1658bb; /* Linha azul charmosa na parte inferior */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    padding: 2rem 1rem;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow-y: auto;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Container do Logotipo */
+body.light-theme nav {
+    background: linear-gradient(180deg, #f0f0f0 0%, #e8e8e8 100%);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
 .logo {
     display: flex;
+    justify-content: center;
     align-items: center;
+    margin-bottom: 2.5rem;
+    padding: 1.2rem;
+    border-bottom: 2px solid var(--primary);
+    border-radius: 8px;
+    background-color: rgba(0, 86, 166, 0.1);
+    transition: all 0.3s ease;
+}
+
+body.light-theme .logo {
+    background-color: rgba(0, 86, 166, 0.08);
 }
 
 .logo img {
-    height: 100px;               /* Altura controlada para não quebrar o menu */
-    width: auto;                /* Mantém a proporção da imagem */
-    max-width: none;            /* Reseta a sua regra geral de img */
-    margin: 0;                  /* Remove margens extras */
-    border-radius: 0;           /* Remove o radius da regra geral se necessário */
-    box-shadow: none;           /* Remove a sombra pesada da regra geral */
+    height: 50px;
+    width: auto;
+    box-shadow: none !important;
+    margin: 0 !important;
+    transition: transform 0.3s ease;
 }
 
-/* Container dos Links */
+.logo img:hover {
+    transform: scale(1.1);
+}
+
 .menu-links {
     display: flex;
-    gap: 10px;                  /* Espaçamento moderno entre os links */
+    flex-direction: column;
+    gap: 0.8rem;
+    flex: 1;
 }
 
-/* Estilização dos Links Individuais */
 nav a {
-    color: #4a90e2;             /* Um azul mais claro e vivo para destacar no fundo escuro */
+    color: var(--text-main);
     text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 5px;
-    transition: all 0.3s ease;  /* Transição suave para todas as propriedades */
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 1rem 1.2rem;
+    border-radius: 6px;
+    background-color: rgba(31, 41, 55, 0.6);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    display: block;
+    text-align: left;
+    position: relative;
 }
 
-/* Efeito Hover (Passar o mouse) */
+body.light-theme nav a {
+    background-color: rgba(200, 200, 200, 0.4);
+    border: 1px solid #999999;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 0;
+    background-color: var(--primary);
+    border-radius: 0 2px 2px 0;
+    transition: height 0.3s ease;
+}
+
 nav a:hover {
-    background-color: #1658bb;  /* Fundo azul do SENAI ao passar o mouse */
-    color: #ffffff;             /* Texto fica branco para contraste perfeito */
+    background-color: rgba(0, 86, 166, 0.2);
+    border-color: var(--primary);
+    color: #ffffff;
+    padding-left: 1.5rem;
 }
 
+nav a:hover::before {
+    height: 100%;
+}
 
+nav a.active {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #ffffff;
+    font-weight: 600;
+}
 
+nav a.active::before {
+    height: 100%;
+}
 
+/* ==========================================================================
+   ÁREA DE CONTEÚDO PRINCIPAL (CENTRALIZADA NO PC)
+   ========================================================================== */
+main {
+    /* Calcula o centro exato da área disponível à direita da barra */
+    margin-left: calc(var(--sidebar-width) + (100vw - var(--sidebar-width) - 900px) / 2);
+    width: 100%;
+    max-width: 900px;
+    padding: 2rem 1.5rem;
+    box-sizing: border-box;
+}
 
+/* Ajusta dinamicamente para telas intermediárias */
+@media (max-width: 1200px) {
+    main {
+        margin-left: var(--sidebar-width);
+        max-width: calc(100% - var(--sidebar-width));
+    }
+}
 
+/* ==========================================================================
+   ELEMENTOS DE CONTEÚDO
+   ========================================================================== */
+h1 {
+    color: var(--text-main);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
 
+h2 {
+    background-color: var(--bg-card);
+    color: var(--primary);
+    padding: 12px 18px;
+    border-left: 5px solid var(--primary);
+    border-radius: 6px;
+    margin: 30px 0 15px 0;
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+}
 
+h3 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
 
-/* ================= CONFIGURAÇÃO PARA CELULAR (TELAS ATÉ 768px) ================= */
+.caixa-texto, .tt-tt {
+    background-color: var(--bg-card);
+    color: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+body.light-theme .caixa-texto,
+body.light-theme .tt-tt {
+    color: #000000;
+}
+
+ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+li {
+    margin-bottom: 6px;
+    color: var(--text-muted);
+}
+
+div {
+    margin: 15px 0;
+}
+
+/* Imagens, vídeos e iframes centralizados */
+img, video {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 20px auto;
+    border-radius: var(--radius);
+    box-shadow: 0 0 20px rgba(0, 86, 166, 0.3);
+}
+
+iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 330px;
+    display: block;
+    margin: 20px auto;
+    border-radius: var(--radius);
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 86, 166, 0.3);
+}
+
+footer {
+    background-color: var(--bg-card);
+    color: var(--primary);
+    padding: 15px;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 1.1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+body.light-theme footer {
+    color: var(--primary);
+}
+
+/* ==========================================================================
+   LAYOUT RESPONSIVO PARA CELULAR (TELAS PEQUENAS)
+   ========================================================================== */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;    /* Empilha a logo e os links verticalmente */
-        gap: 15px;                 /* Dá um espaço entre a logo e os botões */
-        padding: 15px;             /* Reduz o espaçamento lateral interno */
+    body {
+        display: block;
+        font-size: 14px;
     }
 
+    /* Menu superior fixo */
+    nav {
+        width: 100%;
+        height: auto;
+        position: sticky;
+        top: 0;
+        left: 0;
+        border-right: none;
+        border-bottom: 3px solid var(--primary);
+        padding: 1rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+        background: linear-gradient(180deg, #111827 0%, #0d1117 100%);
+        z-index: 999;
+    }
+
+    .logo {
+        margin-bottom: 1rem;
+        padding: 0.8rem;
+        border-bottom: 2px solid var(--primary);
+        border-radius: 6px;
+        background-color: rgba(0, 86, 166, 0.1);
+    }
+
+    .logo img {
+        height: 40px;
+        transition: transform 0.3s ease;
+    }
+
+    .logo img:active {
+        transform: scale(0.95);
+    }
+
+    /* Barra deslizante na horizontal */
     .menu-links {
-        flex-direction: column;    /* Coloca os links um embaixo do outro */
-        width: 100%;               /* Faz os links ocuparem a largura total da tela */
-        gap: 10px;                 /* Espaço menor entre as opções no celular */
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        white-space: nowrap;
+        gap: 0.8rem;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
     }
 
     nav a {
-        display: block;            /* Transforma o link em um bloco clicável maior */
-        text-align: center;        /* Centraliza o texto do botão */
-        background-color: #252525; /* Dá um leve fundo para parecer um botão touch */
-        padding: 12px;             /* Aumenta a área do clique (essencial para o dedo) */
+        font-size: 0.85rem;
+        padding: 0.8rem 1rem;
+        flex-shrink: 0;
+        border-radius: 6px;
+        background-color: rgba(31, 41, 55, 0.6);
+        transition: all 0.3s ease;
+    }
+
+    nav a::before {
+        display: none;
+    }
+
+    nav a:active {
+        background-color: var(--primary);
+        color: #ffffff;
+    }
+
+    nav a.active {
+        background-color: var(--primary);
+        color: #ffffff;
+        border-left: none;
+    }
+
+    /* Conteúdo expande totalmente na tela do celular */
+    main {
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1.5rem 1rem !important;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        margin: 1.2rem 0;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        padding: 0.8rem 1rem;
+        margin: 1.5rem 0 1rem 0;
+        border-radius: 6px;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .caixa-texto, .tt-tt {
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 8px;
+    }
+
+    ul {
+        padding-left: 1.5rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    img, video, iframe {
+        max-width: 100%;
+        height: auto;
+        margin: 1.5rem auto !important;
+        border-radius: 8px;
+    }
+
+    iframe {
+        height: 240px;
+    }
+
+    footer {
+        padding: 1.2rem;
+        margin-top: 2rem;
+        font-size: 0.95rem;
+    }
+
+    div {
+        margin: 1rem 0;
     }
 }
 
-
-.caixa-texto {
-    
-    box-shadow: 0 0 20px rgba(0,102,255,0.4);
-    
-    /* 2. Margem interna: afasta o texto da borda para respirar */
-    padding: 20px; 
-    
-    /* 3. Limita a largura máxima do quadrado (opcional) */
-    max-width: 800px; 
-    
-    /* 4. Centraliza o quadrado na página */
-    margin: 40px auto; 
-    
-    /* 5. Centraliza o texto dentro do quadrado */
-    text-align: center; 
-    
-    /* 6. Cores de fundo e do texto para combinar com seu tema escuro */
-    background-color: #1e1e1e;
-    color: #ffffff;
+/* Estilos do botão de tema */
+#theme-toggle-btn {
+    transition: all 0.3s ease;
 }
 
-.tt-tt {
-    box-shadow: 0 0 20px rgba(0,102,255,0.4);
-    padding: 20px; 
-    margin: 40px auto; 
-    background-color: #1e1e1e;
-    color: #ffffff;
-    text-align: center; 
-    max-width: 400px; 
+body.light-theme #theme-toggle-btn {
+    background-color: rgba(0, 86, 166, 0.15) !important;
+    border-color: #999999 !important;
+    color: #000000 !important;
 }
-
