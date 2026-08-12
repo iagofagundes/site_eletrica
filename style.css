@@ -162,6 +162,7 @@ main {
     max-width: 900px;
     padding: 2rem 1.5rem;
     box-sizing: border-box;
+    transition: margin-left 0.3s ease;
 }
 
 /* Ajusta dinamicamente para telas intermediárias */

@@ -26,7 +26,7 @@ function updateButtonText() {
     const btn = document.getElementById('theme-toggle-btn');
     if (btn) {
         const isLight = document.body.classList.contains('light-theme');
-        btn.textContent = isLight ? '🌙 Escuro' : '☀️ Claro';
+        btn.textContent = isLight ? '⏾' : '☀ ';
     }
 }
 
