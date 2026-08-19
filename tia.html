@@ -58,11 +58,81 @@
 <h2>Controle de Semáforo (Sinaleira)</h2>
 <div class="caixa-texto">
     <p>Gerencia a transição sequencial entre os estados verde, amarelo e vermelho utilizando blocos de tempo TON (Timer On-Delay). A passagem de cada fase só acontece quando a contagem de tempo da etapa anterior é concluída.</p>
-<h3>Na prática</h3>
-<p>Manter o sinal verde ligado por um intervalo programado antes de autorizar a troca automática para o amarelo e, em seguida, para o vermelho.</p>
+    <h3>Na prática</h3>
+    <p>Manter o sinal verde ligado por um intervalo programado antes de autorizar a troca automática para o amarelo e, em seguida, para o vermelho.</p>
 </div>
 <video src="./videos_clps/sinaleira .mov"controls></video>
-
+<br>
+  </div>
+  <h2>Bancada Didática de Automação Festo</h2>
+        <div class="caixa-texto">
+            <h3>Conceito</h3>
+            <p>Conjunto integrado para testes de automação, contendo CLP Siemens, módulos de relés de interface, chaves de entrada digital, bornes de conexão e simulador de malha fechada.</p>
+            <h3>Na prática</h3>
+            <p>Proporcionar um ambiente seguro para montagem, fiação e validação de rotinas de controle industrial.</p>
+    </div>
+    <img src="./img_tia2/bancada.PNG" alt="">
+<br>
+  </div>
+  <h2>Alimentação do Sistema (Power Supply)</h2>
+  <div class="caixa-texto">
+            <h3>conceito</h3>
+            <p>Borneira de conexão elétrica principal do controlador, dividida entre a entrada em corrente alternada e a saída auxiliar contínua.</p>
+            <h3>Na prática</h3>
+            <p>Receber alimentação de $120/230\text{ V AC}$ ($L1, N, PE$) e disponibilizar $24\text{ V DC}$ ($L+, M$) para energizar os circuitos internos do sistema.</p>
+    </div>
+    <img src="./img_tia2/alimentacao.PNG" alt="">
+<br>
+  </div>
+  <h2>Especificações da CPU (Siemens S7-1200)</h2>
+  <div class="caixa-texto">
+            <h3>conceito</h3>
+            <p>Módulo central de processamento modelo CPU 1214C DC/DC/DC, responsável por executar o programa e gerenciar os sinais do processo.</p>
+            <h3>Na prática</h3>
+            <p>Módulo central de processamento modelo CPU 1214C DC/DC/DC, responsável por executar o programa e gerenciar os sinais do processo.</p>
+    </div>
+    <img src="./img_tia2/informacoesclp.PNG  " alt="">
+<br>
+  </div>
+  <h2>Entradas Digitais e Analógicas (DI / AI)</h2>
+  <div class="caixa-texto">
+            <h3>conceito</h3>
+            <p>Terminal superior da CPU para recepção de sinais vindos de sensores, botoeiras e dispositivos de campo.</p>
+            <h3>Na prática</h3>
+            <p>Receber até 14 sinais digitais de $24\text{ V DC}$ (DI a e DI b) e 2 sinais analógicos em tensão de $0\text{ a }10\text{ V DC}$ (AI).</p>
+    </div>
+    <img src="./img_tia2/entradas.PNG   " alt="">
+<br>
+ </div>
+  <h2>Saídas Digitais, Analógicas e Comunicação (DQ / AQ / LAN)</h2>
+  <div class="caixa-texto">
+            <h3>conceito</h3>
+            <p>Terminal inferior e porta de rede da CPU para envio de comandos aos atuadores e integração com sistemas externos.</p>
+            <h3>Na prática</h3>
+            <p>Acionar saídas digitais de $24\text{ V DC}$ (DQ), enviar sinal analógico de saída (AQ0) e realizar a comunicação via rede Profinet (ProfeNET/LAN).</p>
+    </div>
+    <img src="./img_tia2/saidas.PNG" alt="">
+<br>
+ </div>
+  <h2>Base de Relé de Interface (Finder MasterBASIC)</h2>
+  <div class="caixa-texto">
+            <h3>conceito</h3>
+            <p>Soquete para acoplamento de relés auxiliares, utilizado para isolamento galvânico e proteção entre o CLP e as cargas do painel.</p>
+            <h3>Na prática</h3>
+            <p>Conectar a bobina ($A1/A2$) na saída do CLP para comutar contatos secos isolados ($11$ Comum, $14$ NA, $12$ NF) de até $6\text{ A} / 250\text{ V AC}$.</p>
+    </div>
+    <img src="./img_tia2/informacoes rele.PNG" alt="">
+<br>
+</div>
+  <h2>Relé Eletromecânico Ultra-fino (Finder 34.51)</h2>
+  <div class="caixa-texto">
+            <h3>conceito</h3>
+            <p>Componente do tipo Slim inserido na base de interface para chaveamento físico de sinais e potências.</p>
+            <h3>Na prática</h3>
+            <p>Ser acionado por uma bobina de $12\text{ V DC}$ (ou $24\text{ V DC}$ conforme a versão) para comutar correntes de até $6\text{ A}$ em circuitos de até $250\text{ V AC}$.</p>
+    </div>
+    <img src="./img_tia2/releeletromecanico.PNG" alt="">
+<br>
 <h2>Lógica do Tempo: Temporizadores (Timers)</h2>
 <div class="caixa-texto">
     <h3>TON (Timer On-Delay | Atraso para Ligar)</h3>
