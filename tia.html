@@ -22,7 +22,7 @@
         <a href="./tia.html">TIA Portal</a>
     </div>
     <div style="margin-top: auto; padding-top: 2rem; border-top: 1px solid var(--border);">
-        <button id="theme-toggle-btn" onclick="toggleTheme()" style="width: 100%; padding: 0.8rem; background-color: rgba(0, 86, 166, 0.2); color: #ffffff; border: 1px solid var(--primary); border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease;">☀️ Claro</button>
+        <button id="theme-toggle-btn" onclick="toggleTheme()" style="width: 100%; padding: 0.8rem; background-color: rgba(0, 86, 166, 0.2); color: #ffffff; border: 1px solid var(--primary); border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease;">Claro</button>
     </div>
 </nav>
 <script src="theme-toggle.js"></script>
@@ -46,6 +46,23 @@
         <p>● Confiabilidade: Ciclo de varredura rápido (ms) e fácil diagnóstico de falhas.</p>
     </div>
     <img src="./img_tia/image-removebg-preview.png" alt="">
+<br>
+<h2>Mapeamento de Entradas e Saídas Digitais (I/O)</h2>
+<div class="caixa-texto">
+    <p>Mapeia a comunicação direta entre os dispositivos do painel e o controlador. Ao acionar um componente físico na bancada, a instrução em Ladder identifica a alteração no mesmo instante e altera o estado da saída correspondente.</p>
+<h3>Na prática</h3>
+<p>Alternar a chave seletora %I0.0 no painel para energizar a saída %Q0.0 e acionar o relé acoplado.</p>
+</div>
+<video src="./videos_clps/entradasaida.mov"controls></video>
+<br>
+<h2>Controle de Semáforo (Sinaleira)</h2>
+<div class="caixa-texto">
+    <p>Gerencia a transição sequencial entre os estados verde, amarelo e vermelho utilizando blocos de tempo TON (Timer On-Delay). A passagem de cada fase só acontece quando a contagem de tempo da etapa anterior é concluída.</p>
+<h3>Na prática</h3>
+<p>Manter o sinal verde ligado por um intervalo programado antes de autorizar a troca automática para o amarelo e, em seguida, para o vermelho.</p>
+</div>
+<video src="./videos_clps/sinaleira .mov"controls></video>
+
 <h2>Lógica do Tempo: Temporizadores (Timers)</h2>
 <div class="caixa-texto">
     <h3>TON (Timer On-Delay | Atraso para Ligar)</h3>
